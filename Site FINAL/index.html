@@ -340,7 +340,7 @@
             <div class="col5" style="margin-top: 20%;">
                 <p class="wonderWall">even if you "barely touched anything"</p>
                 <p class="wonderWall">Wash your hands</p>
-                
+
                 <p class="wonderWall">be a gentleman</p>
             </div>
 
@@ -469,7 +469,7 @@
 
         $(".show").on("click", function () {
             $(".mask").addClass("active");
-            resetAutoCloseTimer(); // Reset the auto-close timer on button click
+            resetAutoCloseTimer();
         });
 
         // Function for close the Modal
@@ -486,16 +486,16 @@
         var autoCloseTimer;
 
         function resetAutoCloseTimer() {
-            // Clear the existing timer (if any)
+
             clearTimeout(autoCloseTimer);
 
-            // Set a new timer for 4 seconds to close the modal
+
             autoCloseTimer = setTimeout(function () {
                 closeModal();
             }, 3000);
         }
 
-        // Reset the timer on keyup (e.g., pressing ESC key)
+        // Reset the timer on keyup
         $(document).keyup(function (e) {
             if (e.keyCode == 27) {
                 resetAutoCloseTimer();
@@ -516,10 +516,10 @@
             function fadeOutEyettes() {
                 var eyettesContainer = document.querySelector('.eyettes');
                 if (eyettesContainer) {
-                    // Use GSAP to animate the fade out
+
                     gsap.to(eyettesContainer, {
                         opacity: 0, duration: 3, onComplete: function () {
-                            // Optionally, you can hide the container after fading out
+
                             eyettesContainer.style.display = 'none';
                         }
                     });
@@ -529,13 +529,13 @@
             // Attach a click event listener to each button
             buttons.forEach(function (button) {
                 button.addEventListener('click', function () {
-                    // Get the id of the associated <h2> element
+
                     var h2Id = button.querySelector('h2').id;
 
                     console.log(h2Id);
-                    // Check if the id is "lRight" and update the modal content accordingly
+
                     if (h2Id === 'lRight') {
-                        // Find the modal's <p> element and update its text content
+
                         var modalParagraph = document.querySelector('.modal p');
                         if (modalParagraph) {
                             modalParagraph.textContent = "That's not a good place to do that...";
@@ -545,7 +545,7 @@
                         }
                     }
                     if (h2Id === 'lLeft') {
-                        // Find the modal's <p> element and update its text content
+
                         var modalParagraph = document.querySelector('.modal p');
                         if (modalParagraph) {
                             modalParagraph.textContent = "what's wrong with you?";
@@ -554,7 +554,7 @@
                         }
                     }
                     if (h2Id === 'lUp') {
-                        // Find the modal's <p> element and update its text content
+
                         var modalParagraph = document.querySelector('.modal p');
                         if (modalParagraph) {
                             modalParagraph.textContent = "who pees like that??";
@@ -563,7 +563,7 @@
                         }
                     }
                     if (h2Id === 'lDown') {
-                        // Find the modal's <p> element and update its text content
+
                         var modalParagraph = document.querySelector('.modal p');
                         if (modalParagraph) {
                             modalParagraph.textContent = "What are you so stressed about? are you new to having a penis?";
@@ -584,34 +584,31 @@
 
                     if (lookStraightButton && modalParagraph && mask) {
                         lookStraightButton.addEventListener('click', function () {
-                            // Hide the "Look straight" button
+
                             lookStraightButton.style.display = 'none';
 
-                            // Reset the button color
+
                             lookStraightButton.style.color = '';
 
-                            // Change the text in the paragraph
+
                             modalParagraph.textContent = "Focus on the wall";
 
-                            // Show the mask and trigger modal after a delay
+
                             mask.style.display = 'block';
 
-                            // Set a timeout to run the modal again after a delay
-                            setTimeout(function () {
-                                // Additional actions or animations can be added here
 
-                                // Change the text in the paragraph for the second modal
+                            setTimeout(function () {
+
                                 modalParagraph.textContent = "you just peed.";
 
-                                // Set a timeout to hide the mask after 8 seconds (adjusted to your preference)
                                 setTimeout(function () {
                                     mask.style.display = 'none';
                                     var nextSection = document.querySelector('.washHands');
                                     if (nextSection) {
                                         nextSection.scrollIntoView({ behavior: 'smooth' });
                                     }
-                                }, 1500); // 8 seconds (adjust delay as needed)
-                            }, 2000); // 2 seconds (adjust delay as needed)
+                                }, 1500);
+                            }, 2000);
                         });
                     }
 
@@ -655,12 +652,13 @@
                 });
             };
 
-            // Start the animation with the first sentence
+
             fadeInAndOut(currentIndex);
         });
 
+        // Reload the page from the top
         function startOver() {
-            // Reload the page from the top
+
             window.location.href = window.location.origin + window.location.pathname + window.location.search;
         }
 
